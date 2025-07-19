@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $plumber = Role::create(['name' => 'plumber']);
         $electrician = Role::create(['name' => 'electrician']);
-        $cleaner = Role::create(['name' => 'cleaner']);
+        $cleaner = Role::create(['name' => 'cleaning']);
         $security = Role::create(['name' => 'security']);
 
 
