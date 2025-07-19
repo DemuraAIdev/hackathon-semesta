@@ -51,3 +51,6 @@ password
 - Unit Testing
 - notification
 - Diagram Dashboard
+- Implement AI
+
+- **Reason** : Not much time
