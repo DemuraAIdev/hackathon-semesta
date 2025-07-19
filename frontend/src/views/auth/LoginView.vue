@@ -9,8 +9,10 @@ const password = ref("");
 const message = ref("");
 const user = useAuthStore();
 const router = useRouter();
+const loading = ref(false);
 
 async function handleLogin() {
+  loading.value = true;
   const res = await api.post("/login", {
     email: email.value,
     password: password.value,
@@ -24,6 +26,7 @@ async function handleLogin() {
   localStorage.setItem("auth_token", res.data.token);
 
   message.value = res.data.message;
+  loading.value = false;
   return router.push("/dashboard");
 }
 </script>
@@ -33,7 +36,8 @@ async function handleLogin() {
     <form @submit.prevent="handleLogin" class="flex flex-col px-20">
       <input placeholder="Email" class="border-2 mb-3" type="email" v-model="email" />
       <input placeholder="Password" class="border-2" type="password" v-model="password" />
-      <button class="bg-black text-white p-2 mt-5" type="submit">Login</button>
+      <button class="bg-black text-white p-2 mt-5" v-if="!loading" type="submit">Login</button>
+      <button class="bg-black text-white p-2 mt-5" disabled v-else type="submit">Loading...</button>
     </form>
     <p class="text-red-600">{{ message }}</p>
   </main>
