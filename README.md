@@ -43,3 +43,11 @@ Supervisor :
 s1@home.com
 password
 ```
+
+#### Roadmap Unfinieshed
+
+- Make user management for supervisor
+- Auto Assigned to supervisor if 2 hours not completed
+- Unit Testing
+- notification
+- Diagram Dashboard
