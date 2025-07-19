@@ -3,8 +3,8 @@
 ApartemenKu adalah aplikasi berbasis web untuk memanajemen laporan dari penghuni apartemen manjadi lebih mudah
 
 See Backend Docs
-/backend/README.md
-/frontend/README.md
+[BackendDocs](https://github.com/DemuraAIdev/hackathon-semesta/blob/master/backend/README.md)
+[FrontEndDocs](https://github.com/DemuraAIdev/hackathon-semesta/blob/master/frontend/README.md)
 
 ### Stack
 
