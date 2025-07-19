@@ -103,13 +103,6 @@ class ReportController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Report $report)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
