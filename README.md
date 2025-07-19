@@ -44,7 +44,7 @@ s1@home.com
 password
 ```
 
-#### Roadmap Unfinieshed
+#### Roadmap Unfinished
 
 - Make user management for supervisor
 - Auto Assigned to supervisor if 2 hours not completed

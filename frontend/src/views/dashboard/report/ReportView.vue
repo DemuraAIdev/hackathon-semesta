@@ -34,7 +34,7 @@ onMounted(async () => {
         <RouterLink class="bg-black px-3 py-2 text-white" to="/report/create">Create</RouterLink>
       </div>
 
-      <table class="table-auto overflow-auto w-full">
+      <table class="table-auto overflow-auto w-full text-center">
         <thead>
           <tr>
             <th>No</th>
