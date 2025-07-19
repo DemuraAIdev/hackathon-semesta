@@ -6,7 +6,7 @@ export const useAuthStore = defineStore("auth", {
     return {
       token: localStorage.getItem("auth_token") || null,
       user: null,
-      role: null,
+      role: [] as string[],
     };
   },
   getters: {
@@ -27,7 +27,7 @@ export const useAuthStore = defineStore("auth", {
         this.logout();
         return null;
       }
-
+      console.log(res.data);
       this.user = res.data.data;
       this.role = res.data.role;
       console.log("user signed by server");

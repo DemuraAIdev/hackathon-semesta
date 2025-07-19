@@ -13,7 +13,13 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        //
+        $assignments = Assignment::all();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'success retrive all assignments',
+            'data' => $assignments
+        ]);
     }
 
 
@@ -22,7 +28,7 @@ class AssignmentController extends Controller
      */
     public function store(StoreAssignmentRequest $request)
     {
-        //
+
     }
 
     /**

@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import UserDSView from "@/views/dashboard/UserDSView.vue";
 import { useAuthStore } from "@/stores/auth";
+import ReportView from "@/views/dashboard/report/ReportView.vue";
+import ReportCreateView from "@/views/dashboard/report/ReportCreateView.vue";
+import AssignmentView from "@/views/dashboard/assignment/AssignmentView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +30,25 @@ const router = createRouter({
       component: UserDSView,
       meta: { requireAuth: true },
     },
+    {
+      path: "/report",
+      name: "ReportUser",
+      component: ReportView,
+      meta: { requireAuth: true },
+    },
+
+    {
+      path: "/report/create",
+      name: "ReportCreateUser",
+      component: ReportCreateView,
+      meta: { requireAuth: true },
+    },
+    {
+      path: "/assignment",
+      name: "Assignment",
+      component: AssignmentView,
+      meta: { requireAuth: true },
+    },
   ],
 });
 
@@ -36,7 +58,7 @@ router.beforeEach(async (to, from, next) => {
   if (to.meta.requireAuth) {
     if (!user.isAuthenticated) {
       console.log("illegal action detected");
-      return next({ name: "login" });
+      return next({ name: "Login" });
     }
 
     if (!user.user) {
