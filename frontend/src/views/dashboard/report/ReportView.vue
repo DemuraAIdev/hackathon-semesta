@@ -2,7 +2,7 @@
 import api from "@/api";
 import { onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
-// import moment from 'moment';
+import moment from "moment";
 
 interface Report {
   id: number;
@@ -42,15 +42,21 @@ onMounted(async () => {
             <th>location</th>
             <th>type</th>
             <th>status</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(report, idx) in reports" :key="idx">
             <td>{{ idx }}</td>
-            <td>{{ report.created_at }}</td>
+            <td>{{ moment(report.created_at, "HH:mm:ss").format("dddd D-M-Y") }}</td>
             <td>{{ report.location }}</td>
             <td>{{ report.type }}</td>
             <td>{{ report.status }}</td>
+            <td style="height: 50px">
+              <RouterLink class="bg-black text-white p-3" :to="`/report/${report.id}`"
+                >Detail</RouterLink
+              >
+            </td>
           </tr>
         </tbody>
       </table>

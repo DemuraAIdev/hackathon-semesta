@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import api from "@/api";
 import { onMounted, ref } from "vue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 // import moment from 'moment';
 
 interface Location {
   id: number;
   address: string;
 }
+
+const router = useRouter();
 
 const description = ref("");
 const type = ref("");
@@ -35,8 +37,12 @@ async function handleCreate() {
 
   if (res.status !== 200) {
     console.log(res.data.message);
-    message.value = res.data.message;
+    return (message.value = res.data.message);
   }
+
+  message.value = "success created reports";
+  router.push("/report");
+  return;
 }
 
 const listLocation = ref<Location[]>([]);

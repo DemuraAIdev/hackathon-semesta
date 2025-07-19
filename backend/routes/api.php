@@ -13,7 +13,8 @@ Route::middleware(['jwt.auth'])->group(function () {
     Route::post('/report', [ReportController::class, 'store']);
 
     Route::get('/report/user', [ReportController::class, 'myindex']);
-
+    Route::get('/report/{report}', [ReportController::class, 'show']);
+    Route::post('/report/close/{report}', [ReportController::class, 'close']);
 
     Route::get('/report', [ReportController::class, 'index'])->middleware(['role:supervisor']);
 

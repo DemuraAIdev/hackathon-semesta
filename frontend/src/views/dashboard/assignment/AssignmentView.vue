@@ -30,27 +30,25 @@ onMounted(async () => {
     <div>
       <div class="flex justify-between">
         <h1 class="text-2xl">My Assignment</h1>
-
-        <RouterLink class="bg-black px-3 py-2 text-white" to="/report/create">Create</RouterLink>
       </div>
 
-      <table>
+      <table class="table-auto overflow-auto w-full content-between text-center">
         <thead>
           <tr>
-            <th>No</th>
+            <th style="height: 50px">No</th>
             <th>Date</th>
-            <th>location</th>
-            <th>type</th>
-            <th>status</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(report, idx) in reports" :key="idx">
             <td>{{ idx }}</td>
             <td>{{ report.created_at }}</td>
-            <td>{{ report.location }}</td>
-            <td>{{ report.type }}</td>
-            <td>{{ report.status }}</td>
+            <td>
+              <RouterLink class="bg-black text-white p-3" :to="`/report/${report.id}`"
+                >Detail</RouterLink
+              >
+            </td>
           </tr>
         </tbody>
       </table>

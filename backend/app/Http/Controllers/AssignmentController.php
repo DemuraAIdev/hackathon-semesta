@@ -25,7 +25,7 @@ class AssignmentController extends Controller
 
     public function myindex()
     {
-        $assignments = User::with('assignments')->find(auth()->id());
+        $assignments = User::with('assignments', 'reports')->find(auth()->id());
 
         return response()->json([
             'status' => 200,

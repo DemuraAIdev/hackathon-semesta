@@ -7,6 +7,7 @@ use App\Models\Report;
 use App\Http\Requests\StoreReportRequest;
 use App\Http\Requests\UpdateReportRequest;
 use Illuminate\Http\File;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
@@ -59,12 +60,14 @@ class ReportController extends Controller
 
 
 
-        // $user_id = User::role($request->input('type'))->get();
 
-        // $assigned = Assignment::create([
-        //     'user_id' => $user_id->id,
-        //     'report_id' => 1
-        // ]);
+        $randomUser = User::role($request->input('type'))->inRandomOrder()->first();
+
+
+        $assigned = Assignment::create([
+            'user_id' => $randomUser->id,
+            'report_id' => $report->id
+        ]);
 
 
 
@@ -80,7 +83,24 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        //
+        return response()->json([
+            'status' => 200,
+            'data' => $report
+        ]);
+    }
+
+    public function close(Request $request, Report $report)
+    {
+        if ($request->input('close')) {
+            $report->update([
+                'status' => 'closed'
+            ]);
+            $report->save();
+            return response()->json([
+                'status' => 200,
+                'data' => 'successfully closed'
+            ]);
+        }
     }
 
     /**

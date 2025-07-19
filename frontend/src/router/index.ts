@@ -5,6 +5,7 @@ import { useAuthStore } from "@/stores/auth";
 import ReportView from "@/views/dashboard/report/ReportView.vue";
 import ReportCreateView from "@/views/dashboard/report/ReportCreateView.vue";
 import AssignmentView from "@/views/dashboard/assignment/AssignmentView.vue";
+import ReportDetailView from "@/views/dashboard/report/ReportDetailView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,12 @@ const router = createRouter({
       path: "/report/create",
       name: "ReportCreateUser",
       component: ReportCreateView,
+      meta: { requireAuth: true },
+    },
+    {
+      path: "/report/:id",
+      name: "ReportDetailVue",
+      component: ReportDetailView,
       meta: { requireAuth: true },
     },
     {
