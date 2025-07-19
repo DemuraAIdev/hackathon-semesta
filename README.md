@@ -13,3 +13,33 @@ See Backend Docs
 - Axios
 - TailwindCSS
 - PostgreeSQL
+
+### Default Credential
+
+Residents :
+
+```
+res1@home.com
+password
+```
+
+Plumber :
+
+```
+p1@home.com
+password
+```
+
+Electricial :
+
+```
+e1@home.com
+password
+```
+
+Supervisor :
+
+```
+s1@home.com
+password
+```
