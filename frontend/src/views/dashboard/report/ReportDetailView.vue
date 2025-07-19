@@ -55,7 +55,7 @@ onMounted(async () => {
         >
         <RouterLink v-else class="bg-black px-3 py-2 text-white" to="/assignment">Back</RouterLink>
       </div>
-      <div class="grid grid-cols-4 border-2 mb-3">
+      <div class="grid md:grid-cols-4 sm:grid-cols-1 border-2 mb-3">
         <p>{{ report?.description }}</p>
         <div>Location : {{ report?.location }}</div>
         <div></div>
@@ -63,14 +63,14 @@ onMounted(async () => {
           <p class="right-0 text-2xl top-0 font-bold">Status : {{ report?.status }}</p>
         </div>
       </div>
-      <div class="grid grid-cols-2">
-        <div>
+      <div class="grid md:grid-cols-2 sm:grid-cols-1">
+        <div class="mr-4">
           <p>Photo Attachment</p>
-          <img class="w-30" :src="report?.photo_path" alt="" />
+          <img class="w-full" :src="report?.photo_path" alt="" />
         </div>
         <div>
           <p>Selfie Attachment</p>
-          <img class="w-30" :src="report?.selfi_path" alt="" />
+          <img class="w-50" :src="report?.selfi_path" alt="" />
         </div>
       </div>
     </div>

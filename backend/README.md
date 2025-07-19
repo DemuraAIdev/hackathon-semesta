@@ -50,3 +50,5 @@ php artisan storage:link
 ```
 php artisan serve
 ```
+
+see APIDOCS.md for API documentation
