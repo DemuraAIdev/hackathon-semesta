@@ -31,7 +31,8 @@ class AuthController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'successfully login'
+            'message' => 'successfully login',
+            'token' => $token
         ], 200);
 
     }
@@ -41,7 +42,8 @@ class AuthController extends Controller
         return response()->json([
             'status' => 200,
             'message' => 'success retrive user data',
-            'data' => auth()->user()
+            'data' => auth()->user(),
+            'role' => auth()->user()->getRoleNames()
         ], 200);
     }
 }

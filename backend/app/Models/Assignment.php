@@ -5,21 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Report extends Model
+class Assignment extends Model
 {
-    /** @use HasFactory<\Database\Factories\ReportFactory> */
+    /** @use HasFactory<\Database\Factories\AssignmentFactory> */
     use HasFactory;
-
     protected $fillable = [
         'user_id',
-        'description',
-        'selfi_path',
-        'photo_path',
-        'location',
-        'status',
-        'type'
+        'report_id'
     ];
 
     public function user(): BelongsTo
@@ -27,8 +20,8 @@ class Report extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function assignments(): HasMany
+    public function report(): BelongsTo
     {
-        return $this->hasMany(Assignment::class);
+        return $this->belongsTo(Report::class);
     }
 }

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import api from '@/api';
+import { useAuthStore } from '@/stores/auth';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 
 const email = ref('')
 const password = ref('')
 const message = ref('')
+const user = useAuthStore()
+const router = useRouter()
 
 async function handleLogin()  {
   const res = await api.post('/login', {
@@ -17,7 +21,11 @@ async function handleLogin()  {
     console.log(res.data.message)
     return message.value = res.data.message
   }
-  return message.value = res.data.message
+  user.token = res.data.token
+  localStorage.setItem('auth_token', res.data.token)
+
+  message.value = res.data.message
+  return router.push('/dashboard')
 }
 </script>
 
