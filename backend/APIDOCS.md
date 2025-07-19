@@ -16,3 +16,5 @@ password
 ### Me (GET)
 
 /api/me
+
+Cooming Soon
