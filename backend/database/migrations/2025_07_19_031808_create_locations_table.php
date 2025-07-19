@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->string('address');
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }

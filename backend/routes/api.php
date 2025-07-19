@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -15,5 +17,8 @@ Route::middleware(['jwt.auth'])->group(function () {
 
     Route::get('/report', [ReportController::class, 'index'])->middleware(['role:supervisor']);
 
+    Route::get('/assignment', [AssignmentController::class, 'index'])->middleware(['role:supervisor']);
+    Route::get('/assignment/user', [AssignmentController::class, 'myindex'])->middleware(['role:plumber|electricity|security|cleaner']);
 
+    Route::get('/location/user', [LocationController::class, 'myindex']);
 });

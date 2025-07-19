@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Location;
 use App\Http\Requests\StoreLocationRequest;
 use App\Http\Requests\UpdateLocationRequest;
+use App\Models\User;
 
 class LocationController extends Controller
 {
@@ -13,8 +14,26 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::all();
+        return response()->json([
+            'status' => 200,
+            'data' => $locations
+        ]);
     }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function myindex()
+    {
+        $locations = User::with('locations')->find(auth()->id());
+
+        return response()->json([
+            'status' => 200,
+            'data' => $locations->locations
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

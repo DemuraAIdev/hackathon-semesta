@@ -17,7 +17,7 @@ interface Report {
 const reports = ref<Report[]>([]);
 
 onMounted(async () => {
-  const res = await api.get("/assignment");
+  const res = await api.get("/assignment/user");
   if (res.status === 200) {
     console.log(res.data);
     reports.value = res.data.data;

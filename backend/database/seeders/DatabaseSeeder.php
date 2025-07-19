@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+
 
         $residents = Role::create(['name' => 'residents']);
         $officer = Role::create(['name' => 'officer']);
@@ -26,15 +26,17 @@ class DatabaseSeeder extends Seeder
         $cleaner = Role::create(['name' => 'cleaner']);
         $security = Role::create(['name' => 'security']);
 
-        $A40L1 = Location::create([
-            'address' => 'L1, A40'
-        ]);
 
-        User::factory()->create([
+
+        $res1 = User::factory()->create([
             'name' => 'Residents1',
             'email' => 'res1@home.com',
-            'location_id' => $A40L1
         ])->assignRole($residents);
+
+        Location::create([
+            'address' => 'L1, A40',
+            'user_id' => $res1->id
+        ]);
 
         User::factory()->create([
             'name' => 'Plumber',

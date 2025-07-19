@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Assignment;
 use App\Http\Requests\StoreAssignmentRequest;
 use App\Http\Requests\UpdateAssignmentRequest;
@@ -20,6 +21,17 @@ class AssignmentController extends Controller
             'message' => 'success retrive all assignments',
             'data' => $assignments
         ]);
+    }
+
+    public function myindex()
+    {
+        $assignments = User::with('assignments')->find(auth()->id());
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'success retrive my assignments',
+            'data' => $assignments->assignments
+        ], 200);
     }
 
 

@@ -25,7 +25,6 @@ class StoreReportRequest extends FormRequest
             'description' => 'required',
             'location' => 'required',
             'type' => 'required',
-            'status' => 'required',
             'selfi_path' => 'required',
             'photo_path' => 'required'
         ];

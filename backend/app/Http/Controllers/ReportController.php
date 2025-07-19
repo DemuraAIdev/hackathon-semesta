@@ -53,17 +53,18 @@ class ReportController extends Controller
             'location' => $request->input('location'),
             'status' => 'open',
             'type' => $request->input('type')
-        ])->save();
-
-
-
-
-        $user_id = User::role($request->input('type'))->get();
-
-        $assigned = Assignment::create([
-            'user_id' => $user_id->id,
-            'report_id' => $report->id
         ]);
+
+
+
+
+
+        // $user_id = User::role($request->input('type'))->get();
+
+        // $assigned = Assignment::create([
+        //     'user_id' => $user_id->id,
+        //     'report_id' => 1
+        // ]);
 
 
 

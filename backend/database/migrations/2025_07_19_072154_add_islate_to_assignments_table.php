@@ -10,8 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('location_id')->nullable()->after('user_id')->constrained();
+        Schema::table('assignments', function (Blueprint $table) {
+            $table->boolean('isLate')->default(false);
         });
     }
 
@@ -20,7 +20,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('assignments', function (Blueprint $table) {
             //
         });
     }
